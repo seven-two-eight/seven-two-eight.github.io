@@ -206,7 +206,9 @@ var sequence = anime
         duration: eclipDur,
         easing: "linear",
         begin: function () {
+            eclipseSun.style.webkitanimationPlayState = "running";
             eclipseSun.style.animationPlayState = "running";
+            eclipseMoon.style.webkitanimationPlayState = "running";
             eclipseMoon.style.animationPlayState = "running";
         },
         complete: function () {
@@ -217,7 +219,9 @@ var sequence = anime
             eclipseMoon.offsetWidth;
             eclipseSun.classList.add("eclipseSun");
             eclipseMoon.classList.add("eclipseMoon");
+            eclipseSun.style.webkitAnimationPlayState = "paused";
             eclipseSun.style.animationPlayState = "paused";
+            eclipseMoon.style.webkitAnimationPlayState = "paused";
             eclipseMoon.style.animationPlayState = "paused";
         }
     })

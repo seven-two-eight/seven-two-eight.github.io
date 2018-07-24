@@ -13,18 +13,11 @@ body {
         margin: 0;
         top: 50vh;
         overflow: hidden;
-        -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
     }
     @keyframes rotation {
-        from  { 
-            -webkit-transform: rotate(0deg); 
-            transform: rotate(0deg);
-        }
-        to    { 
-            -webkit-transform: rotate(360deg); 
-            transform: rotate(360deg); 
-        }
+        from  { transform: rotate(0deg); }
+        to    { transform: rotate(360deg); }
     }
 }
 @media only screen and (orientation: landscape) {
@@ -35,18 +28,11 @@ body {
         margin: 0;
         left: 50vw;
         overflow: hidden;
-        -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
     }
     @keyframes rotation {
-        from  { 
-            -webkit-transform: rotate(0deg); 
-            transform: rotate(0deg);
-        }
-        to    { 
-            -webkit-transform: rotate(360deg); 
-            transform: rotate(360deg);
-        }
+        from  { transform: rotate(0deg); }
+        to    { transform: rotate(360deg); }
     }
 }
 #title_728 {
@@ -62,7 +48,6 @@ body {
 }
 #tapToContinue {
     opacity: 1;
-    -webkit-animation: tapToContinue 3s ease-out alternate infinite;
     animation: tapToContinue 3s ease-out alternate infinite;
 }
 .transparent, .phrase {
@@ -81,19 +66,16 @@ body {
     background: url("moon.svg");
     background-size: cover;
     background-position: 0 0;
-    -webkit-animation: sphereTexture 30s linear infinite;
     animation: sphereTexture 30s linear infinite;
 }
 #sphereEarthTexture {
     background: url("earth.svg");
     background-size: cover;
     background-position: 0 15%;
-    -webkit-animation: sphereTexture 30s linear infinite;
     animation: sphereTexture 30s linear infinite;
 }
 #sphereShadow {
     background: black;
-    -webkit-animation: sphereShadow 15s linear alternate infinite;
     animation: sphereShadow 15s linear alternate infinite;
 }
 #sphereHalo {
@@ -104,32 +86,12 @@ body {
     background: white;
     z-index: -1;
     box-shadow: 0 0 10vw white;
-    -webkit-animation: sphereHalo 10s linear alternate infinite;
     animation: sphereHalo 10s linear alternate infinite;
 }
 #nightSky {
     width: 100%;
     height: 100%;
     background-image:
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%),
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%),
         radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%),
         radial-gradient(circle, #fff 20%, transparent 30%), 
         radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
@@ -152,7 +114,6 @@ body {
     background-size: 4px 4px, 8px 8px, 5px 5px, 8px 8px, 6px 6px, 4px 4px, 5px 5px, 4px 4px, 6px 6px, 8px 8px, 5px 5px, 4px 4px, 8px 8px, 6px 6px, 5px 5px, 4px 4px, 5px 5px, 6px 6px;
     background-position: 20% 10%, 5% 20%, 10% 75%, 22% 35%, 30% 30%, 40% 80%, 45% 20%, 65% 20%, 85% 30%, 98% 90%, 20% 80%, 50% 80%, 75% 80%, 89% 75%, 90% 95%, 60% 70%, 65% 20%, 90% 20%;
     background-repeat: no-repeat;
-    -webkit-animation: twinkle ease-in 4s alternate infinite, rotation 320s linear infinite;
     animation: twinkle ease-in 4s alternate infinite, rotation 320s linear infinite;
 }
 .eclipseSun {
@@ -165,9 +126,7 @@ body {
     width: 70%;
     border-radius: 50%;
     box-shadow: 0 0 5vw 5vw #FBF0C3;
-    -webkit-animation: eclipseSun 32s linear forwards;
     animation: eclipseSun 32s linear forwards;
-    -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }
 .eclipseMoon {
@@ -181,7 +140,6 @@ body {
     border-radius: 50%;
     -webkit-animation: eclipseMoon 32s linear forwards;
     animation: eclipseMoon 32s linear forwards;
-    -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }
 .phrase {
@@ -215,25 +173,6 @@ body {
 @keyframes twinkle {
     to {
         background-image:
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%), 
-            -webkit-radial-gradient(circle, #fff 20%, transparent 30%),
             radial-gradient(circle, #fff 20%, transparent 30%), 
             radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
             radial-gradient(circle, #fff 20%, transparent 30%), 
@@ -267,6 +206,32 @@ body {
         box-shadow: 0 0 10px 10px #262728;
     }
     100% {
+        left: -50%;
+        background: #479EE1;
+        box-shadow: 0 0 0 0 #479EE1;
+    }
+}
+@-webkit-keyframes eclipseMoon {
+    0% {
+        -webkit-left: 150%;
+        left: 150%;
+        -webkit-background: #479EE1;
+        background: #479EE1;
+        -webkit-box-shadow: 0 0 0 0 #479EE1;
+        box-shadow: 0 0 0 0 #479EE1;
+    }
+    50% {
+        -webkit-left: 50%;
+        -webkit-background: #262728;
+        -webkit-box-shadow: 0 0 10px 10px #262728;
+        left: 50%;
+        background: #262728;
+        box-shadow: 0 0 10px 10px #262728;
+    }
+    100% {
+        -webkit-left: -50%;
+        -webkit-background: #479EE1;
+        -webkit-box-shadow: 0 0 0 0 #479EE1;
         left: -50%;
         background: #479EE1;
         box-shadow: 0 0 0 0 #479EE1;
