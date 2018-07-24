@@ -239,8 +239,4 @@ function onTap (e) {
     sequence.play();
 }
 document.onclick = onTap;
-<<<<<<< HEAD
-document.onTap   = onTap;
-=======
 document.ontouchstart = onTap;
->>>>>>> e53a626a0d7f63498f63fff912c67becd40dee4c
