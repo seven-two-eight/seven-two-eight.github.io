@@ -1,0 +1,222 @@
+body {
+    position: relative;
+    margin: 0; 
+    background: grey;
+    overflow: hidden;
+}
+@media only screen and (orientation: portrait) {
+    svg, .sphere, #bkgd, #nightSky {
+        position: absolute;
+        width: 100vw;
+        height: 100vw;
+        margin: 0;
+        top: 50vh;
+        transform: translateY(-50%);
+    }
+    @keyframes rotation {
+        from  { transform: translateY(-50%) rotate(0deg); }
+        to    { transform: translateY(-50%) rotate(360deg); }
+    }
+}
+@media only screen and (orientation: landscape) {
+    svg, .sphere, #bkgd, #nightSky {
+        position: absolute;
+        height: 100vh;
+        width:  100vh;
+        margin: 0;
+        left: 50vw;
+        transform: translateX(-50%);
+    }
+    @keyframes rotation {
+        from  { transform: translateX(-50%) rotate(0deg); }
+        to    { transform: translateX(-50%) rotate(360deg); }
+    }
+}
+#title_728 {
+    fill: none;
+    stroke: skyblue;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray: 43;
+    stroke-dashoffset: 43;
+}
+#bkgd {
+    background: #eee;
+}
+#tapToContinue {
+    opacity: 1;
+    animation: tapToContinue 3s ease-out alternate infinite;
+}
+.transparent, .phrase {
+    opacity: 0;
+}
+.sphereMaterial {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    border: none;
+}
+#sphereMoonTexture {
+    background: url("moon.svg");
+    background-size: cover;
+    background-position: 0 0;
+    animation: sphereTexture 30s linear infinite;
+}
+#sphereEarthTexture {
+    background: url("earth.svg");
+    background-size: cover;
+    background-position: 0 15%;
+    animation: sphereTexture 30s linear infinite;
+}
+#sphereShadow {
+    background: black;
+    animation: sphereShadow 15s linear alternate infinite;
+}
+#sphereHalo {
+    top: 16%;
+    left: 16%;
+    width: 68%;
+    height: 68%;
+    background: white;
+    z-index: -1;
+    box-shadow: 0 0 10vw white;
+    animation: sphereHalo 10s linear alternate infinite;
+}
+#nightSky {
+    background-image:
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%);
+    background-size: 4px 4px, 8px 8px, 5px 5px, 8px 8px, 6px 6px, 4px 4px, 5px 5px, 4px 4px, 6px 6px, 8px 8px, 5px 5px, 4px 4px, 8px 8px, 6px 6px, 5px 5px, 4px 4px, 5px 5px, 6px 6px;
+    background-position: 20% 10%, 5% 20%, 10% 75%, 22% 35%, 30% 30%, 40% 80%, 45% 20%, 65% 20%, 85% 30%, 98% 90%, 20% 80%, 50% 80%, 75% 80%, 89% 75%, 90% 95%, 60% 70%, 65% 20%, 90% 20%;
+    background-repeat: no-repeat;
+    animation: twinkle ease-in 4s alternate infinite, rotation 320s linear infinite;
+}
+#eclipse {
+    overflow: hidden;
+}
+.eclipseSun {
+    background: #FBF0C3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 70%;
+    width: 70%;
+    border-radius: 50%;
+    box-shadow: 0 0 5vw 5vw #FBF0C3;
+    animation: eclipseSun 32s linear forwards;
+    animation-play-state: paused;
+}
+.eclipseMoon {
+    background: #262728;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: 70%;
+    width: 70%;
+    left: 100%;
+    border-radius: 50%;
+    animation: eclipseMoon 32s linear forwards;
+    animation-play-state: paused;
+}
+.phrase {
+    font: 5px You Yuan, You Yuan;
+    fill: lightgray;
+    user-select: none;
+}
+.fireworks {
+    position: absolute;
+    z-index: 20;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - */
+@keyframes tapToContinue {
+    0%   { fill: #ddd;}
+    100%  { fill: black; }
+}
+@keyframes sphereShadow {
+    0%   {box-shadow: inset 3vw 3vw 6vw white;}
+    45%  {box-shadow: inset 0vw 0vw 6vw white;}
+    55%  {box-shadow: inset 0vw 0vw 6vw white;}
+    100% {box-shadow: inset -3vw 3vw 6vw white;}
+}
+@keyframes sphereHalo {
+    0%   {left: 15%;}
+    100% {left: 16%;}
+}
+@keyframes sphereTexture {
+    from { background-position-x: 0% }
+    to   { background-position-x: 200% }
+}
+@keyframes twinkle {
+    to {
+        background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%), 
+        radial-gradient(circle, #fff 20%, transparent 30%);
+    }
+}
+@keyframes eclipseMoon {
+    0% {
+        left: 150%;
+        background: #479EE1;
+        box-shadow: 0 0 0 0 #479EE1;
+    }
+    50% {
+        left: 50%;
+        background: #262728;
+        box-shadow: 0 0 10px 10px #262728;
+    }
+    100% {
+        left: -50%;
+        background: #479EE1;
+        box-shadow: 0 0 0 0 #479EE1;
+    }
+}
+@keyframes eclipseSun {
+    0% {
+        box-shadow: 0 0 0 0 #ffeda5;
+    }
+    40%, 46%, 54%, 60% {
+        box-shadow: 0 0 2vw 2vw #ffeda5;
+    }
+    50% {
+        box-shadow: 0 0 4vw 4vw #ffeda5;
+    }
+    100% {
+        box-shadow: 0 0 0 0 #ffeda5;
+    }
+}
