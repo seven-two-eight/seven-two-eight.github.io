@@ -28,8 +28,10 @@ function actionEnd() {
 function sequenceEnd() {
     console.log("action " + actionCount + " finished");
     console.log("end of the sequence");
-    if (!autoPlay)
+    if (!autoPlay){
         document.body.addEventListener("click", fire);
+        document.body.addEventListener("touchstart", fire);
+    }
     actionCount = 0;
     inAction    = false;
     autoPlay    = true;
