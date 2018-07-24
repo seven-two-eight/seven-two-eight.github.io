@@ -43,8 +43,19 @@ body {
     stroke-dasharray: 43;
     stroke-dashoffset: 43;
 }
+.phrase {
+    font: 5px You Yuan, You Yuan;
+    fill: lightgray;
+    user-select: none;
+}
 #bkgd {
-    background: #eee;
+    background: #EEEEEE;
+}
+#shootingStars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(125deg)
 }
 #tapToContinue {
     opacity: 1;
@@ -85,36 +96,51 @@ body {
     height: 68%;
     background: white;
     z-index: -1;
-    box-shadow: 0 0 10vw white;
+    box-shadow: 0 0 10vmin white;
     animation: sphereHalo 10s linear alternate infinite;
 }
 #nightSky {
     width: 100%;
     height: 100%;
-    background-image:
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%),
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        radial-gradient(circle, #fff 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%);
-    background-size: 4px 4px, 8px 8px, 5px 5px, 8px 8px, 6px 6px, 4px 4px, 5px 5px, 4px 4px, 6px 6px, 8px 8px, 5px 5px, 4px 4px, 8px 8px, 6px 6px, 5px 5px, 4px 4px, 5px 5px, 6px 6px;
-    background-position: 20% 10%, 5% 20%, 10% 75%, 22% 35%, 30% 30%, 40% 80%, 45% 20%, 65% 20%, 85% 30%, 98% 90%, 20% 80%, 50% 80%, 75% 80%, 89% 75%, 90% 95%, 60% 70%, 65% 20%, 90% 20%;
-    background-repeat: no-repeat;
-    animation: twinkle ease-in 4s alternate infinite, rotation 320s linear infinite;
+    animation: rotation 320s linear infinite;
+}
+#stars1 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:
+        20vmin 10vmin 1px white,
+        5vmin  20vmin  white,
+        30vmin 30vmin  white,
+        40vmin 80vmin  white,
+        89vmin 75vmin 1px white,
+        75vmin 80vmin 2px white,
+        45vmin 20vmin 1px white;
+    animation: twinkle 5s alternate infinite;
+}
+#stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:
+        10vmin 75vmin 1px white,
+        85vmin 30vmin 1px white,
+        90vmin 90vmin 1px white,
+        20vmin 80vmin  white,
+        90vmin 20vmin  white;
+    animation: twinkle 3s alternate infinite;
+}
+#stars3 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow:
+        50vmin 80vmin 1px white,
+        90vmin 95vmin  white,
+        22vmin 35vmin  white,
+        60vmin 70vmin 2px white,
+        65vmin 20vmin  white;
+    animation: twinkle 4s alternate infinite;
 }
 .eclipseSun {
     background: #FBF0C3;
@@ -125,7 +151,7 @@ body {
     height: 70%;
     width: 70%;
     border-radius: 50%;
-    box-shadow: 0 0 5vw 5vw #FBF0C3;
+    box-shadow: 0 0 5vmin 5vmin #FBF0C3;
     animation: eclipseSun 32s linear forwards;
     animation-play-state: paused;
 }
@@ -142,10 +168,20 @@ body {
     animation: eclipseMoon 32s linear forwards;
     animation-play-state: paused;
 }
-.phrase {
-    font: 5px You Yuan, You Yuan;
-    fill: lightgray;
-    user-select: none;
+.shootingStar {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.7);
+}
+.shootingStar::before {
+    position: absolute;
+    content: "";
+    right: 1px;
+    top: 0;
+    width: 20vmin;
+    height: 1px;
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255, 255, 255, 0.7) 100%);
 }
 .fireworks {
     position: absolute;
@@ -157,10 +193,10 @@ body {
     100%  { fill: black; }
 }
 @keyframes sphereShadow {
-    0%   {box-shadow: inset 3vw 3vw 6vw white;}
-    45%  {box-shadow: inset 0vw 0vw 6vw white;}
-    55%  {box-shadow: inset 0vw 0vw 6vw white;}
-    100% {box-shadow: inset -3vw 3vw 6vw white;}
+    0%   {box-shadow: inset 3vmin 3vmin 6vmin white;}
+    45%  {box-shadow: inset 0vmin 0vmin 6vmin white;}
+    55%  {box-shadow: inset 0vmin 0vmin 6vmin white;}
+    100% {box-shadow: inset -3vmin 3vmin 6vmin white;}
 }
 @keyframes sphereHalo {
     0%   {left: 15%;}
@@ -171,28 +207,8 @@ body {
     to   { background-position-x: 200% }
 }
 @keyframes twinkle {
-    to {
-        background-image:
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%), 
-            radial-gradient(circle, #fff 20%, transparent 30%);
-    }
+    0%, 75%{ opacity: 1 }
+    90%, 100% { opacity: 0.4 }
 }
 @keyframes eclipseMoon {
     0% {
@@ -242,10 +258,10 @@ body {
         box-shadow: 0 0 0 0 #ffeda5;
     }
     40%, 46%, 54%, 60% {
-        box-shadow: 0 0 2vw 2vw #ffeda5;
+        box-shadow: 0 0 2vmin 2vmin #ffeda5;
     }
     50% {
-        box-shadow: 0 0 4vw 4vw #ffeda5;
+        box-shadow: 0 0 4vmin 4vmin #ffeda5;
     }
     100% {
         box-shadow: 0 0 0 0 #ffeda5;

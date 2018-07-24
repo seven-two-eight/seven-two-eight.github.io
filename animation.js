@@ -13,6 +13,8 @@ const eclipDur  = 8*baseDur;
 const lightingOpa = 0.5;
 const sunnyColor = "#479EE1";
 const eclipseColor = "#262728";
+const nightColor = "#000000";
+const initBkgd   = "#EEEEEE";
 var eclipseSun  = document.getElementById("eclipseSun");
 var eclipseMoon = document.getElementById("eclipseMoon");
 
@@ -74,7 +76,7 @@ var sequence = anime
     .add({
         targets: "#bkgd",
         duration: bkgdDur,
-        backgroundColor: "#000",
+        backgroundColor: nightColor
     })
     .add({
         targets: "#我是月球",
@@ -149,14 +151,15 @@ var sequence = anime
     })
     .add({
         targets: "#阴晴圆缺",
-        duration: phraseDur,
-        delay: phraseDur,
-        opacity: 1,
+        opacity: [{value: 1}, {value: 0}],
+        duration: 2*phraseDur,
+        delay: Math.round(0.5*phraseDur)
     })
     .add({
-        targets: "#我在你的星空中绕圈, #阴晴圆缺",
+        targets: "#我在你的星空中绕圈",
         duration: phraseDur,
-        opacity: 0
+        opacity: 0,
+        offset: "-=" + phraseDur
     })
     .add({
         targets: "#忽明忽暗",
@@ -170,17 +173,19 @@ var sequence = anime
         targets: "#sphereMoon",
         duration: sphereDur,
         opacity: 0,
+        easing: "easeOutQuad"
     })
     .add({
         targets: "#sphereLighting",
         duration: 2*sphereDur,
-        opacity: [{value: 1}, {value: 0}]
+        opacity: [{value: 1}, {value: 0}],
+        easing: "easeOutQuad"
     })
     .add({
         targets: "#忽明忽暗",
         duration: phraseDur,
         offset: "-=" + 2*sphereDur,
-        opacity: 0,
+        opacity: 0
     })
 
     .add({
@@ -191,6 +196,12 @@ var sequence = anime
     .add({
         targets: "#eclipse",
         opacity: 1,
+        duration: sunDur,
+        offset: "-=" + sunDur
+    })
+    .add({
+        targets: "#nightSky",
+        opacity: 0,
         duration: sunDur,
         offset: "-=" + sunDur
     })
@@ -226,12 +237,83 @@ var sequence = anime
         }
     })
     .add({
+        targets: "#nightSky",
+        opacity: [{value: 1}, {value: 0}],
+        duration: eclipDur,
+        offset: "-=" + eclipDur
+    })
+    .add({
         targets: "#也不够制造黑暗",
         opacity: [{value: 0}, {value: 1}, {value: 0}, {value: 0}],
         duration: eclipDur,
-        offset: "-=" + eclipDur,
-        complete: sequenceEnd                   // action end
-    });
+        offset: "-=" + Math.round(0.9*eclipDur)
+    })
+    .add({
+        targets: "#eclipse",
+        opacity: 0,
+        duration: sunDur,
+        easing: "easeOutQuad"
+    })
+    .add({
+        targets: "#bkgd",
+        backgroundColor: nightColor,
+        duration: sunDur,
+        offset: "-=" + sunDur,
+        easing: "easeOutQuad"
+    })
+    .add({
+        targets: "#却总希望你会想我, #nightSky",
+        opacity: 1,
+        duration: sunDur,
+        offset: "-=" + Math.round(0.8*sunDur)
+    })
+    .add({
+        targets: "#却总希望你会想我",
+        opacity: 0,
+        duration: phraseDur,
+        delay: sunDur,
+        easing: "easeOutQuad"
+    })
+    .add({
+        targets: "#在没有月的夜晚",
+        opacity: [{value: 1}, {value: 0}],
+        duration: 5*phraseDur,
+        easing: "easeInOutQuad"
+    })
+    .add({
+        targets: ".shootingStar",
+        left: "130%",
+        opacity: [{value: 1}, {value: 1}, {value: 1}],
+        duration: 3*phraseDur,
+        offset: "-=" + (3*phraseDur),
+        easing: "linear",
+    })
+    .add({
+        targets: "#nightSky",
+        opacity: 0,
+        duration: bkgdDur,
+        offset: "-=" + Math.round(0.5*phraseDur)
+    })
+    .add({
+        targets: "#bkgd",
+        backgroundColor: initBkgd,
+        duration: bkgdDur,
+        offset: "-=" + bkgdDur,
+        easing: "easeInOutQuad"
+    })
+    .add({
+        targets: "#title_728",
+        opacity: [{value: 1}, {value: 1}, {value: 0}],
+        duration: 3*bkgdDur,
+        easing: "easeInOutQuad"
+    })
+    .add({
+        targets: "#tapToContinue",
+        opacity: 1,
+        duration: bkgdDur,
+        delay: bkgdDur,
+        complete: sequenceEnd
+    })
 
 sequence.pause();
 
