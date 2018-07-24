@@ -239,3 +239,4 @@ function onTap (e) {
     sequence.play();
 }
 document.onclick = onTap;
+document.onTap   = onTap;
