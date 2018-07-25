@@ -153,6 +153,7 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 5vmin 5vmin #FBF0C3;
     animation: eclipseSun 32s linear forwards;
+    -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }
 .eclipseMoon {
@@ -164,8 +165,8 @@ body {
     width: 70%;
     left: 100%;
     border-radius: 50%;
-    -webkit-animation: eclipseMoon 32s linear forwards;
     animation: eclipseMoon 32s linear forwards;
+    -webkit-animation-play-state: paused;
     animation-play-state: paused;
 }
 .shootingStar {
@@ -222,32 +223,6 @@ body {
         box-shadow: 0 0 10px 10px #262728;
     }
     100% {
-        left: -50%;
-        background: #479EE1;
-        box-shadow: 0 0 0 0 #479EE1;
-    }
-}
-@-webkit-keyframes eclipseMoon {
-    0% {
-        -webkit-left: 150%;
-        left: 150%;
-        -webkit-background: #479EE1;
-        background: #479EE1;
-        -webkit-box-shadow: 0 0 0 0 #479EE1;
-        box-shadow: 0 0 0 0 #479EE1;
-    }
-    50% {
-        -webkit-left: 50%;
-        -webkit-background: #262728;
-        -webkit-box-shadow: 0 0 10px 10px #262728;
-        left: 50%;
-        background: #262728;
-        box-shadow: 0 0 10px 10px #262728;
-    }
-    100% {
-        -webkit-left: -50%;
-        -webkit-background: #479EE1;
-        -webkit-box-shadow: 0 0 0 0 #479EE1;
         left: -50%;
         background: #479EE1;
         box-shadow: 0 0 0 0 #479EE1;
