@@ -217,23 +217,13 @@ var sequence = anime
         duration: eclipDur,
         easing: "linear",
         begin: function () {
-            eclipseSun.style.webkitanimationPlayState = "running";
-            eclipseSun.style.animationPlayState = "running";
-            eclipseMoon.style.webkitanimationPlayState = "running";
-            eclipseMoon.style.animationPlayState = "running";
+            eclipseSun.classList.remove("paused");
+            eclipseMoon.classList.remove("paused");
         },
         complete: function () {
             // hack to reset css animatioin
-            eclipseSun.classList.remove("eclipseSun");
-            eclipseMoon.classList.remove("eclipseMoon");
-            eclipseSun.offsetWidth;
-            eclipseMoon.offsetWidth;
-            eclipseSun.classList.add("eclipseSun");
-            eclipseMoon.classList.add("eclipseMoon");
-            eclipseSun.style.webkitAnimationPlayState = "paused";
-            eclipseSun.style.animationPlayState = "paused";
-            eclipseMoon.style.webkitAnimationPlayState = "paused";
-            eclipseMoon.style.animationPlayState = "paused";
+            eclipseSun.classList.add("paused");
+            eclipseMoon.classList.add("paused");
         }
     })
     .add({
