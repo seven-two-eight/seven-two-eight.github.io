@@ -1,3 +1,7 @@
+/*
+    开宗明义！
+    把关键的参数提出来，方便动画调试。
+*/
 var actionCount = 0;
 var inAction    = false;
 var autoPlay    = false;
@@ -18,6 +22,12 @@ const initBkgd   = "#EEEEEE";
 var eclipseSun  = document.getElementById("eclipseSun");
 var eclipseMoon = document.getElementById("eclipseMoon");
 
+/* 
+    一个场景结束后就，等你点一下才开始下个场景。
+    这样好歹也算产生了互动！
+    如果是二周目的话，就直接播放，不用点，免得你烦。
+    （贴心的我）
+*/
 function actionEnd() {
     console.log("action " + actionCount + " finished");
     actionCount = actionCount + 1;
@@ -27,10 +37,14 @@ function actionEnd() {
         onTap(null);
     }
 }
+/*
+    脚本结束后，重置场景，准备二周目！
+*/
 function sequenceEnd() {
     console.log("action " + actionCount + " finished");
     console.log("end of the sequence");
     if (!autoPlay){
+        // 桌面端和移动端的点击事件竟然不统一！
         document.body.addEventListener("click", fire);
         document.body.addEventListener("touchstart", fire);
     }
@@ -41,6 +55,13 @@ function sequenceEnd() {
     console.log("sequence restarted");
 }
 
+/*
+    主脚本！
+    一个个的别偷懒！好好按剧本演出！
+    我们的目标是跨平台兼容！
+    管它是桌面端还是手机端！
+    低端小米还是傲慢苹果！
+*/
 var sequence = anime
     .timeline({easing: "easeInQuad"})
     .add({
@@ -305,8 +326,15 @@ var sequence = anime
         complete: sequenceEnd
     })
 
+/*
+    脚本准备完毕！final standby!
+*/
 sequence.pause();
 
+/*
+    象征性的互动。
+    もとあなたと話すことが欲しい。
+*/
 function onTap (e) {
     if (inAction)
         return;
@@ -316,5 +344,10 @@ function onTap (e) {
     inAction = true;
     sequence.play();
 }
+
+/*
+    言ったでしょう！
+    跨平台！！
+*/
 document.onclick = onTap;
 document.ontouchstart = onTap;

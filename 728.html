@@ -1,16 +1,43 @@
 <!DOCTYPE html>
+<!--
+    代码的注释多少我都能写出来。但对你我该说些什么。
+-->
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+        ななからはちへ
+    -->
     <title>~ 7 2 8 ~</title>
+    <!--
+        I choose anime.js 100% because of their fancy animated documentation.
+        でも、わたしにとて、あなたのことがもとすきです。
+    -->
     <script src="anime.min.js"></script>
+    <!--
+        我没什么 style 可言。我大脑中的一切都是抽象、单调与黑白的。
+        You are the only color of my life.
+    -->
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
 
+<!-- 
+    "bkgd" obviouslly stands for "background".
+    君はあほですか？いいね！
+-->
 <div id="bkgd"></div>
 
+<!--
+    天空的容器，装着星空与流星。
+    
+    神様を見たことは多分ないと思う。
+    もし神様にも願いごとがあるとしたら、それは何に願えばいいのだろう？
+    願いを胸に夜毎星空を仰ぎ見ても、流れ星はいつ落ちてくるかわからない。
+    だから、流れ星に願いごとをすれば叶うっていうのは、つまり、叶わないってことでしょ？
+    けれど、私の願いはきっとかなう。だって私は……だって私は、この流れ星を待っていたのだから！！
+-->
 <div id="skyContainer">
     <div id="shootingStars">
         <p class="shootingStar" style="left: -20%; top:50%; opacity: 0"/>
@@ -24,6 +51,9 @@
     </div>
 </div>
 
+<!--
+    もう言ったのに！
+-->
 <svg id="title_728" viewBox="0 0 100 100">
     <polyline id="title_7"
         points="30 42.08 38 42.08 33 54.08"/>
@@ -33,19 +63,31 @@
         d="M64,44.62c0-3.95,7-3.95,7,0,0,2-7,4.94-7,6.91,0,3.95,7,3.95,7,0C71,49.56,64,46.6,64,44.62Z" />
 </svg>
 
+<!--
+    死缠烂打的月球！
+-->
 <div id="sphereMoon" class="sphere transparent">
     <div id="sphereMoonTexture" class="sphereMaterial sphereTexture"></div>
 </div>
 
+<!--
+    自以为是的地球！
+-->
 <div id="sphereEarth" class="sphere transparent">
     <div id="sphereEarthTexture" class="sphereMaterial sphereTexture"></div>
 </div>
 
+<!--
+    光与影！
+-->
 <div id="sphereLighting" class="sphere transparent">
     <div id="sphereShadow" class="sphereMaterial"></div>
     <div id="sphereHalo" class="sphereMaterial"></div>
 </div>
 
+<!--
+    月球想挡住地球的太阳！癞蛤蟆想吃天鹅肉！
+-->
 <div id="eclipse" class="sphere transparent">
     <div id="eclipseSun" class="eclipseSun paused"></div>
     <div id="eclipseMoon" class="eclipseMoon paused"></div>
@@ -66,9 +108,15 @@
     <text id="在没有月的夜晚" class="phrase" transform="translate(30.88 51.75)">在没有月的夜晚</text>
 </svg>
 
+<!--
+    完结散花！
+-->
 <canvas class="fireworks"></canvas>
-
 <script src="fireworks.js"></script>
+
+<!--
+    让一切动起来的代码！
+-->
 <script src="animation.js"></script>
 
 </body>

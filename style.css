@@ -164,7 +164,12 @@ body {
     border-radius: 50%;
     animation: eclipseMoon 32s linear forwards;
 }
-.paused { /* workaround for ios' unfunctioning animation-play-state */
+ /* 
+    workaround for ios' unfunctioning animation-play-state 
+
+    叫你用 iPhone !!!
+*/
+.paused {
     -webkit-animation: none !important;
     animation: none !important;
 }
@@ -187,7 +192,9 @@ body {
     position: absolute;
     z-index: 20;
 }
-/* - - - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - - - - - - - - - - - - - - - - - - - - - 
+            下面是星空效果的关键帧！
+   - - - - - - - - - - - - - - - - - - - - - - - - */
 @keyframes tapToContinue {
     0%   { fill: #ddd;}
     100%  { fill: black; }
